@@ -1,0 +1,27 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Attack {
+  id          Int      @id @default(autoincrement())
+  year        Int
+  month       Int
+  day         Int
+  country     String
+  state       String?
+  city        String
+  lat         Float
+  lng         Float
+  summary     String?
+  attackType  String
+  targetType  String
+  groupName   String
+  numKilled  Float?
+  createdAt   DateTime @default(now())
+}
