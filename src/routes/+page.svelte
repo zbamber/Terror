@@ -9,15 +9,21 @@
 
     let startDate = $state('2017-12-28');
     let endDate = $state('2017-12-31');
-    let selectedGroup = $state(null)
-    let selectedTargetType = $state(null)
+    let selectedGroup = $state(null);
+    let selectedTargetType = $state(null);
+    let selectedAttackType = $state(null);
+    let fatalityRange = $state([0,201]);
 
     let filteredData = $derived(attacks.filter(d => {
         const groupPass = !selectedGroup || d.groupName === selectedGroup
         
         const targetPass = !selectedTargetType || d.targetType === selectedTargetType
+
+        const methodPass = !selectedAttackType || d.attackType === selectedAttackType
+
+        const fatalitiesPass = fatalityRange[0] <= d.numKilled && (fatalityRange[1] === 201 || d.numKilled <= fatalityRange[1])
         
-        return groupPass && targetPass
+        return groupPass && targetPass && methodPass && fatalitiesPass
     }));
 
 </script>
@@ -37,6 +43,8 @@
         bind:endDate
         bind:selectedGroup
         bind:selectedTargetType
+        bind:selectedAttackType
+        bind:fatalityRange
         filteredCount={filteredData.length}
         totalCount={attacks.length}
         />

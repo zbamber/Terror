@@ -5,6 +5,8 @@
     import Combo from "./Combo.svelte";
     import LockIcon from "@lucide/svelte/icons/lock";
     import OpenLockIcon from "@lucide/svelte/icons/lock-open"
+    import { Slider } from "$lib/components/ui/slider/index.js";
+    import { Label } from "$lib/components/ui/label/index.js";
     import Button from "./ui/button/button.svelte";
 
     let {
@@ -12,6 +14,8 @@
         endDate = $bindable(),
         selectedGroup = $bindable(),
         selectedTargetType = $bindable(),
+        selectedAttackType = $bindable(),
+        fatalityRange = $bindable(),
         filteredCount,
         totalCount
     } = $props();
@@ -29,10 +33,10 @@
     >Options</Popover.Trigger
     >
     <Popover.Content class="w-80" interactOutsideBehavior={locked ? "ignore" : undefined}>
-    <div class="grid gap-4">
+    <div class="grid gap-6">
     <div class="space-y-2">
         <div class="flex flex-row gap-2">
-            <h4 class="font-medium leading-none">Filters</h4>
+            <h4 class="font-large leading-none">Filters</h4>
             {#if locked}
             <LockIcon class="mr-2 size-4 right-5" onclick={toggleLock}></LockIcon>
             {:else}
@@ -43,7 +47,7 @@
         Filter the data you wish to see.
         </p>
     </div>
-    <div class="grid gap-2">
+    <div class="grid gap-4">
         <FilterCalendar prompt='Pick a start Date'/>
         <FilterCalendar prompt='Pick an end Date'/>
         <Combo
@@ -52,6 +56,11 @@
         <Combo
         bind:value={selectedTargetType}
         dataType="target"/>
+        <Combo
+        bind:value={selectedAttackType}
+        dataType="method"/>
+        <Label class="font-medium leading-none">{`Fatalities between ${fatalityRange[0]} and ${fatalityRange[1] === 201 ? "200+": fatalityRange[1]}`}</Label>
+        <Slider type="multiple" bind:value={fatalityRange} max={201} step={1}/>
     </div>
     <div class="mt-2 border-t border-white/20 pt-4">
         <p class="text-sm text-gray-300">

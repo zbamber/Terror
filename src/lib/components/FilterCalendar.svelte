@@ -25,9 +25,9 @@
  const valueString = $derived(
   value ? df.format(value.toDate(getLocalTimeZone())) : ""
  );
- 
+ const YEAR = 365
  const items = [
-  { value: 0, label: "Today" },
+  { value: -20 * YEAR, label: "-20" },
   { value: 1, label: "Tomorrow" },
   { value: 3, label: "In 3 days" },
   { value: 7, label: "In a week" }

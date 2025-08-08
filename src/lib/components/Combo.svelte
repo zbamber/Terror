@@ -7,19 +7,14 @@
  import { Button } from "$lib/components/ui/button/index.js";
  import { cn } from "$lib/utils.js";
  
- let options = $state<{ value: string; label: string }[]>([]);
+ let options = $state<{ value: string}[]>([]);
  let hasLoaded = $state(false);
  let open = $state(false);
  let { value = $bindable(),  dataType } = $props(); 
  let triggerRef = $state<HTMLButtonElement>(null!);
-
- let selectedValue = $derived(
-  options.find((g) => g.value === value)?.label
- );
  
 const reset = function() {
     value = null;
-    selectedValue = null;
 };
 
  $effect(() => {
@@ -28,8 +23,7 @@ const reset = function() {
         .then(res => res.json())
         .then((data: string[]) => {
             options = data.map(name => ({
-            value: name,
-            label: name
+            value: name
             }));
             hasLoaded = true;
         })
@@ -60,8 +54,8 @@ const reset = function() {
     role="combobox"
     aria-expanded={open}
    >
-    <span class="truncate overflow-hidden text-ellipsis whitespace-nowrap max-w-[150px]">
-        {selectedValue || `Select a ${dataType}...`}
+    <span class={cn("truncate overflow-hidden text-ellipsis whitespace-nowrap max-w-[150px]", !value && "text-muted-foreground")}>
+        {value || `Select a ${dataType}...`}
     </span>
     <ChevronsUpDownIcon class="opacity-50" />
    </Button>
@@ -84,7 +78,7 @@ const reset = function() {
        <CheckIcon
         class={cn(value !== option.value && "text-transparent")}
        />
-       {option.label}
+       {option.value}
       </Command.Item>
      {/each}
     </Command.Group>
