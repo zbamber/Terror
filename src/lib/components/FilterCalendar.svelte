@@ -4,34 +4,37 @@
   DateFormatter,
   type DateValue,
   getLocalTimeZone,
-  today
+  today,
+  CalendarDate
  } from "@internationalized/date";
  import { cn } from "$lib/utils.js";
  import { buttonVariants } from "$lib/components/ui/button/index.js";
  import { Calendar } from "$lib/components/ui/calendar/index.js";
  import * as Popover from "$lib/components/ui/popover/index.js";
  import * as Select from "$lib/components/ui/select/index.js";
-    import DialogOverlay from "./ui/dialog/dialog-overlay.svelte";
  
+ const endOfData = new CalendarDate(2017, 12, 31)
+ const startOfData = new CalendarDate(1970, 1, 1)
+
+ const years = [];
+ for (let year = endOfData.year; year >= startOfData.year; year--) {
+   years.push({ value: `${year}`, label:`${year}` });
+ }
+
  const df = new DateFormatter("en-US", {
   dateStyle: "long"
  });
 
  let {
+   value = $bindable(),
     prompt
  } = $props();
 
- let value: DateValue | undefined = $state();
+ const selectedYear = $derived(value ? `${value.year}` : undefined);
+
  const valueString = $derived(
   value ? df.format(value.toDate(getLocalTimeZone())) : ""
  );
- const YEAR = 365
- const items = [
-  { value: -20 * YEAR, label: "-20" },
-  { value: 1, label: "Tomorrow" },
-  { value: 3, label: "In 3 days" },
-  { value: 7, label: "In a week" }
- ];
 </script>
  
 <Popover.Root>
@@ -54,22 +57,22 @@
     () => valueString,
     (v) => {
      if (!v) return;
-     value = today(getLocalTimeZone()).add({ days: Number.parseInt(v) });
+     value = new CalendarDate(Number.parseInt(v), value.month, value.day);
     }
    }
   >
    <Select.Trigger>
-    {valueString}
+    Year
    </Select.Trigger>
    <Select.Content>
-    {#each items as item (item.value)}
-     <Select.Item value={`${item.value}`}>{item.label}</Select.Item>
+    {#each years as year (year.value)}
+     <Select.Item value={`${year.value}`}>{year.label}</Select.Item>
     {/each}
    </Select.Content>
   </Select.Root>
   
   <div class="rounded-md border">
-   <Calendar type="single" bind:value />
+   <Calendar type="single" bind:value minValue={startOfData} maxValue={endOfData}/>
   </div>
  </Popover.Content>
 </Popover.Root>

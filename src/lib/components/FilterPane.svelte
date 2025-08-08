@@ -32,7 +32,7 @@
     <Popover.Trigger class={buttonVariants({ variant: "outline" })}
     >Options</Popover.Trigger
     >
-    <Popover.Content class="w-80" interactOutsideBehavior={locked ? "ignore" : undefined}>
+    <Popover.Content class="w-80" align="start" interactOutsideBehavior={locked ? "ignore" : undefined}>
     <div class="grid gap-6">
     <div class="space-y-2">
         <div class="flex flex-row gap-2">
@@ -48,8 +48,8 @@
         </p>
     </div>
     <div class="grid gap-4">
-        <FilterCalendar prompt='Pick a start Date'/>
-        <FilterCalendar prompt='Pick an end Date'/>
+        <FilterCalendar prompt='Pick a start Date' bind:value={startDate}/>
+        <FilterCalendar prompt='Pick an end Date' bind:value={endDate}/>
         <Combo
         bind:value={selectedGroup}
         dataType="group"/>

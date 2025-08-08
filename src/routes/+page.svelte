@@ -2,13 +2,14 @@
     import Globe from '$lib/components/Globe.svelte';
     import FilterPane from '$lib/components/FilterPane.svelte';
     import Button from '$lib/components/ui/button/button.svelte';
+    import { CalendarDate } from '@internationalized/date';
 
     let { data } = $props();
     const { attacks } = data;
-    // console.log('Loaded attacks:', attacks);
+    console.log('Loaded attacks:', attacks);
 
-    let startDate = $state('2017-12-28');
-    let endDate = $state('2017-12-31');
+    let startDate = $state(new CalendarDate(2017, 12, 25));
+    let endDate = $state(new CalendarDate(2017, 12, 31));
     let selectedGroup = $state(null);
     let selectedTargetType = $state(null);
     let selectedAttackType = $state(null);
