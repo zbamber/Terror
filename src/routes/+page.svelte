@@ -5,17 +5,41 @@
 
     let { data } = $props();
     const { attacks } = data;
-    console.log('Loaded attacks:', attacks);
+    // console.log('Loaded attacks:', attacks);
+
+    let startDate = $state('2017-12-28');
+    let endDate = $state('2017-12-31');
+    let selectedGroup = $state(null)
+    let selectedTargetType = $state(null)
+
+    let filteredData = $derived(attacks.filter(d => {
+        const groupPass = !selectedGroup || d.groupName === selectedGroup
+        
+        const targetPass = !selectedTargetType || d.targetType === selectedTargetType
+        
+        return groupPass && targetPass
+    }));
+
 </script>
 
 <svelte:head>
     <title>SvelteKit Earthquake Globe</title>
 </svelte:head>
 
-<main>
+<main class="relative h-screen w-screen">
     {#if attacks.length > 0}
-        <Globe data={attacks} />
-        <!-- <FilterPane /> -->
+        <div class="absolute inset-0 z-0 bg-black">
+            <Globe data={filteredData} />
+            
+        </div>
+        <FilterPane
+        bind:startDate
+        bind:endDate
+        bind:selectedGroup
+        bind:selectedTargetType
+        filteredCount={filteredData.length}
+        totalCount={attacks.length}
+        />
     {:else}
         <div class="flex h-screen w-screen items-center justify-center bg-gray-900 text-white">
             <p class="text-xl">Loading earthquake data...</p>
