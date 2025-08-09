@@ -1,4 +1,4 @@
-import groupNames from "$lib/data/groupNames.json";
+import groupNames from "$lib/data/groupCategories.json";
 
 export async function GET() {
   return new Response(JSON.stringify(groupNames), {

@@ -12,7 +12,7 @@
     let {
         startDate = $bindable(),
         endDate = $bindable(),
-        selectedGroup = $bindable(),
+        selectedGroupCategory = $bindable(),
         selectedTargetType = $bindable(),
         selectedAttackType = $bindable(),
         fatalityRange = $bindable(),
@@ -51,7 +51,7 @@
         <FilterCalendar prompt='Pick a start Date' bind:value={startDate}/>
         <FilterCalendar prompt='Pick an end Date' bind:value={endDate}/>
         <Combo
-        bind:value={selectedGroup}
+        bind:value={selectedGroupCategory}
         dataType="group"/>
         <Combo
         bind:value={selectedTargetType}

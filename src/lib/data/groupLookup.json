@@ -1,0 +1,179 @@
+{
+  "Al-Shabaab": [
+    "Al-Shabaab",
+    "Al-Shabaab al-Mu'minin",
+    "Hizbul al Islam (Somalia)",
+    "Jabha East Africa",
+    "Islamic Courts Union (ICU)",
+    "Raskamboni Movement"
+  ],
+  "Boko Haram": [
+    "Boko Haram",
+    "Ansaru (Jama'atu Ansarul Muslimina Fi Biladis Sudan)",
+    "Islamic State of Iraq and the Levant (ISIL)",
+    "Soldiers of the Caliphate"
+  ],
+  "Hamas": [
+    "Hamas (Islamic Resistance Movement)",
+    "Al-Aqsa Martyrs Brigade",
+    "Popular Resistance Committees",
+    "Army of Islam (Jaish al-Islam)"
+  ],
+  "Hezbollah": [
+    "Hezbollah",
+    "Kata'ib Hezbollah",
+    "Asa'ib Ahl al-Haqq",
+    "Al-Ashtar Brigades",
+    "Hezbollah Palestine"
+  ],
+  "Islamic State (ISIS)": [
+    "Islamic State of Iraq and the Levant (ISIL)",
+    "Abu Sayyaf Group (ASG)",
+    "Maute Group",
+    "Jemaah Ansharut Daulah (JAD)",
+    "Mujahidin Indonesia Timur (MIT)",
+    "Sinai Province of the Islamic State",
+    "Ansar Bayt al-Maqdis (Ansar Jerusalem)",
+    "Khorasan Chapter of the Islamic State",
+    "Islamic State in the Greater Sahara (ISGS)",
+    "Boko Haram",
+    "Jund al-Khilafa",
+    "Jund al-Khilafah (Tunisia)",
+    "Adan-Abyan Province of the Islamic State",
+    "Al Bayda Province of the Islamic State",
+    "Algeria Province of the Islamic State",
+    "Bahrain Province of the Islamic State",
+    "Barqa Province of the Islamic State",
+    "Caucasus Province of the Islamic State",
+    "Fezzan Province of the Islamic State",
+    "Hadramawt Province of the Islamic State",
+    "Hijaz Province of the Islamic State",
+    "Lahij Province of the Islamic State",
+    "Najd Province of the Islamic State",
+    "Sanaa Province of the Islamic State",
+    "Shabwah Province of the Islamic State",
+    "Tripoli Province of the Islamic State"
+  ],
+  "Taliban": [
+    "Taliban",
+    "Tehrik-i-Taliban Pakistan (TTP)",
+    "Haqqani Network"
+  ],
+  "Al-Qaeda and Affiliates": [
+    "Al-Qaida",
+    "Al-Qaida Kurdish Battalions (AQKB)",
+    "Al-Qaida Network for Southwestern Khulna Division",
+    "Al-Qaida Organization for Jihad in Sweden",
+    "Al-Qaida in Iraq",
+    "Al-Qaida in Lebanon",
+    "Al-Qaida in Saudi Arabia",
+    "Al-Qaida in Yemen",
+    "Al-Qaida in the Arabian Peninsula (AQAP)",
+    "Al-Qaida in the Indian Subcontinent",
+    "Al-Qaida in the Islamic Maghreb (AQIM)",
+    "Abdullah Azzam Brigades",
+    "Al-Nusrah Front",
+    "Ansar al-Din",
+    "Ansar al-Sharia (Libya)",
+    "Ansar al-Sharia (Tunisia)",
+    "East Turkistan Islamic Movement (ETIM)",
+    "Hay'at Tahrir al-Sham",
+    "Jamaat Nusrat al-Islam wal Muslimin (JNIM)",
+    "Jemaah Islamiya (JI)",
+    "Movement for Oneness and Jihad in West Africa (MUJAO)"
+  ],
+  "Basque Separatists": [
+    "Basque Fatherland and Freedom (ETA)",
+    "Iparretarrak (IK)",
+    "Jarrai",
+    "Haika",
+    "Basque Country Autonomous Self-Defense Group",
+    "Basque Rectitudes",
+    "Basque Refugee Support Group"
+  ],
+  "Corsican Separatists": [
+    "Corsican National Liberation Front (FLNC)",
+    "Armata Corsa",
+    "Resistenza Corsa",
+    "Fronte Paesanu Corsu di Liberazione (FPCL)",
+    "Cuncolta Naziunalista"
+  ],
+  "Irish Republican Groups": [
+    "Irish Republican Army (IRA)",
+    "Official Irish Republican Army (OIRA)",
+    "Continuity Irish Republican Army (CIRA)",
+    "Real Irish Republican Army (RIRA)",
+    "The New Irish Republican Army",
+    "Irish National Liberation Army (INLA)",
+    "Irish People's Liberation Organization (IPLO)",
+    "Oglaigh na hEireann"
+  ],
+  "Kurdish Groups": [
+    "Kurdistan Workers' Party (PKK)",
+    "Kurdistan Freedom Hawks (TAK)",
+    "Kurdistan Free Life Party",
+    "People's Protection Units (YPG)",
+    "Syrian Democratic Forces (SDF)"
+  ],
+  "Other Nationalist/Separatist Groups": [
+    "Ambazonia Defense Forces (ADF)",
+    "Bougainville Revolutionary Army (BRA)",
+    "Chechen Rebels",
+    "Free Aceh Movement (GAM)",
+    "Indigenous People of Biafra (IPOB)",
+    "Liberation Tigers of Tamil Eelam (LTTE)",
+    "Polisario Front",
+    "Zapatista National Liberation Army"
+  ],
+  "Communist/Left-Wing Groups": [
+    "Action Directe",
+    "Alex Boncayao Brigade (ABB)",
+    "Baader-Meinhof Group",
+    "Communist Party of India - Maoist (CPI-Maoist)",
+    "Farabundo Marti National Liberation Front (FMLN)",
+    "National Liberation Army of Colombia (ELN)",
+    "New People's Army (NPA)",
+    "Red Brigades",
+    "Revolutionary Armed Forces of Colombia (FARC)",
+    "Shining Path (SL)",
+    "Tupac Amaru Revolutionary Movement (MRTA)"
+  ],
+  "Right-Wing/Neo-Nazi Groups": [
+    "Afrikaner Resistance Movement (AWB)",
+    "Aryan Brotherhood",
+    "Combat 18",
+    "Golden Dawn",
+    "Ku Klux Klan",
+    "National Socialist Underground",
+    "The Order (Silent Brotherhood)",
+    "White Wolves"
+  ],
+  "Other Ideological Groups": [
+    "Animal Liberation Front (ALF)",
+    "Army of God",
+    "Aum Shinri Kyo",
+    "Earth Liberation Front (ELF)",
+    "Jewish Defense League (JDL)",
+    "Kach",
+    "Kahane Chai",
+    "People Against Gangsterism and Drugs (PAGAD)"
+  ],
+  "Gangs": [
+    "Baba Ladla Gang",
+    "Cali Narcotics Cartel",
+    "First Capital Command (PCC)",
+    "Gulf Cartel",
+    "Juarez Cartel (Carrillo-Fuentes / Mexico)",
+    "Medellin Drug Cartel",
+    "Trinitarians",
+    "Zetas"
+  ],
+  "Guerrilla forces": [
+    "Afghan Mujahideen",
+    "Allied Democratic Forces (ADF)",
+    "Contras",
+    "Lord's Resistance Army (LRA)",
+    "National Union for the Total Independence of Angola (UNITA)",
+    "Revolutionary United Front (RUF)"
+  ]
+}

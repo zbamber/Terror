@@ -3,20 +3,21 @@
     import FilterPane from '$lib/components/FilterPane.svelte';
     import Button from '$lib/components/ui/button/button.svelte';
     import { CalendarDate } from '@internationalized/date';
+    import groupLookup from '$lib/data/groupLookup.json'
 
     let { data } = $props();
     const { attacks } = data;
-    console.log('Loaded attacks:', attacks);
+    // console.log('Loaded attacks:', attacks);
 
     let startDate = $state(new CalendarDate(2017, 12, 25));
     let endDate = $state(new CalendarDate(2017, 12, 31));
-    let selectedGroup = $state(null);
+    let selectedGroupCategory = $state(null);
     let selectedTargetType = $state(null);
     let selectedAttackType = $state(null);
     let fatalityRange = $state([0,201]);
 
     let filteredData = $derived(attacks.filter(d => {
-        const groupPass = !selectedGroup || d.groupName === selectedGroup
+        const groupPass = !selectedGroupCategory || groupLookup[selectedGroupCategory].includes(d.groupName)
         
         const targetPass = !selectedTargetType || d.targetType === selectedTargetType
 
@@ -42,7 +43,7 @@
         <FilterPane
         bind:startDate
         bind:endDate
-        bind:selectedGroup
+        bind:selectedGroupCategory
         bind:selectedTargetType
         bind:selectedAttackType
         bind:fatalityRange
