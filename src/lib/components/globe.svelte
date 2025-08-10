@@ -8,6 +8,7 @@
 	onMount(async () => {
         const THREE = await import('three');
         const { default: ThreeGlobe } = await import('three-globe');
+		// const { default: Globe } = await import('globe.gl');
         const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js');
 
 		const localGlobe = new ThreeGlobe()

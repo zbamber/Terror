@@ -7,6 +7,7 @@
     import OpenLockIcon from "@lucide/svelte/icons/lock-open"
     import { Slider } from "$lib/components/ui/slider/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
+    import { Switch } from "$lib/components/ui/switch/index.js";
     import Button from "./ui/button/button.svelte";
 
     let {
@@ -16,6 +17,7 @@
         selectedTargetType = $bindable(),
         selectedAttackType = $bindable(),
         fatalityRange = $bindable(),
+        rotating = $bindable(),
         filteredCount,
         totalCount
     } = $props();
@@ -66,6 +68,10 @@
         <p class="text-sm text-gray-300">
             Showing <strong>{filteredCount}</strong> of <strong>{totalCount}</strong> loaded attacks
         </p>
+    </div>
+    <div class="flex items-center space-x-2">
+    <Switch id="airplane-mode" bind:checked={rotating} />
+    <Label for="airplane-mode">Auto Rotate</Label>
     </div>
     </div>
     </Popover.Content>

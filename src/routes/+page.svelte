@@ -1,5 +1,6 @@
 <script>
     import Globe from '$lib/components/Globe.svelte';
+    import NewGlobe from '@/lib/components/NewGlobe.svelte';
     import FilterPane from '$lib/components/FilterPane.svelte';
     import * as Alert from "$lib/components/ui/alert/index.js";
     import Loader from "@lucide/svelte/icons/loader"
@@ -20,6 +21,9 @@
     let selectedTargetType = $state(null);
     let selectedAttackType = $state(null);
     let fatalityRange = $state([0,201]);
+
+    let rotating = $state(false);
+    $inspect(rotating)
 
     let filteredData = $derived(attacks.filter(d => {
         const groupPass = !selectedGroupCategory || groupLookup[selectedGroupCategory].includes(d.groupName)
@@ -107,8 +111,9 @@
 <main class="relative h-screen w-screen">
     {#if attacks.length > 0}
         <div class="absolute inset-0 z-0 bg-black">
-            <Globe data={filteredData} />
-            
+            <NewGlobe
+            data={filteredData}
+            bind:rotating={rotating}/>
         </div>
         <FilterPane
         bind:startDate
@@ -117,6 +122,7 @@
         bind:selectedTargetType
         bind:selectedAttackType
         bind:fatalityRange
+        bind:rotating
         filteredCount={filteredData.length}
         totalCount={attacks.length}
         />
