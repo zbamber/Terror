@@ -1,6 +1,8 @@
 <script>
     import Globe from '$lib/components/Globe.svelte';
     import FilterPane from '$lib/components/FilterPane.svelte';
+    import * as Alert from "$lib/components/ui/alert/index.js";
+    import Loader from "@lucide/svelte/icons/loader"
     import Button from '$lib/components/ui/button/button.svelte';
     import { CalendarDate } from '@internationalized/date';
     import groupLookup from '$lib/data/groupLookup.json'
@@ -118,8 +120,19 @@
         filteredCount={filteredData.length}
         totalCount={attacks.length}
         />
+        {#if loading}
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 mb-20 w-full max-w-xl">
+                <Alert.Root>
+                    <Loader class="animate-spin"/>
+                    <Alert.Title>Loading!</Alert.Title>
+                    <Alert.Description
+                    >Loading records between {startDate} and {endDate}</Alert.Description
+                    >
+                </Alert.Root>
+            </div>
+        {/if}
     {:else}
-        <div class="flex h-screen w-screen items-center justify-center bg-gray-900 text-white">
+        <div class="flex h-screen w-screen items-center justify-center text-white">
             <p class="text-xl">Loading earthquake data...</p>
         </div>
     {/if}
