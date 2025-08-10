@@ -2,6 +2,7 @@
     import Globe from '$lib/components/Globe.svelte';
     import NewGlobe from '@/lib/components/NewGlobe.svelte';
     import FilterPane from '$lib/components/FilterPane.svelte';
+    import InfoCard from '@/lib/components/InfoCard.svelte';
     import * as Alert from "$lib/components/ui/alert/index.js";
     import Loader from "@lucide/svelte/icons/loader"
     import Button from '$lib/components/ui/button/button.svelte';
@@ -9,6 +10,7 @@
     import groupLookup from '$lib/data/groupLookup.json'
     import { json } from '@sveltejs/kit';
     import { onMount } from 'svelte';
+    import * as Card from "$lib/components/ui/card/index.js";
 
     let { data } = $props();
     let attacks = $state(data.attacks ?? []);
@@ -23,7 +25,7 @@
     let fatalityRange = $state([0,201]);
 
     let rotating = $state(false);
-    $inspect(rotating)
+    let selectedPoint = $state(null);
 
     let filteredData = $derived(attacks.filter(d => {
         const groupPass = !selectedGroupCategory || groupLookup[selectedGroupCategory].includes(d.groupName)
@@ -113,7 +115,8 @@
         <div class="absolute inset-0 z-0 bg-black">
             <NewGlobe
             data={filteredData}
-            bind:rotating={rotating}/>
+            bind:rotating={rotating}
+            bind:selectedPoint/>
         </div>
         <FilterPane
         bind:startDate
@@ -136,6 +139,9 @@
                     >
                 </Alert.Root>
             </div>
+        {/if}
+        {#if selectedPoint}
+            <InfoCard {selectedPoint}/>
         {/if}
     {:else}
         <div class="flex h-screen w-screen items-center justify-center text-white">

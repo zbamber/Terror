@@ -3,7 +3,8 @@
 
 	// let props = $props();
     let { data,
-        rotating = $bindable()
+        rotating = $bindable(),
+        selectedPoint = $bindable()
      } = $props();
 
     let container;
@@ -21,13 +22,15 @@
 			.pointLng((d) => d.lng)
 			.pointAltitude(0)
 			.pointRadius(0.5)
-			.pointColor(d => 'red')
+			.pointColor(d => 'white')
 			.pointsData(data)
             .backgroundColor('#000000')
             .atmosphereColor('ghostwhite')
             .atmosphereAltitude('0.1')
             .onPointHover(obj => {hoveredPoint = obj})
-            .pointsTransitionDuration(300);
+            .onPointClick(obj => {obj === selectedPoint ? selectedPoint = null : selectedPoint = obj})
+            .pointsTransitionDuration(100)
+            .pointResolution(16);
 
 		const scene = localGlobe.scene();
 		const camera = localGlobe.camera();
@@ -90,12 +93,21 @@
     $effect(() => {
         const currentHoveredPoint = hoveredPoint
 		if (globe && data) {
-			globe.pointAltitude(d => d === hoveredPoint ? 0.05 : 0);
-            globe.pointColor(d => d === hoveredPoint ? 'white': 'red');
-            globe.pointRadius(d => d === hoveredPoint ? '1': '0.5');
+			globe.pointAltitude(d => d === hoveredPoint || d === selectedPoint ? 0.05 : 0);
+            globe.pointColor(d => d === hoveredPoint || d === selectedPoint ? 'red': 'white');
+            globe.pointRadius(d => d === hoveredPoint || d === selectedPoint ? '1': '0.5');
 			globe.pointsData(data);
 		}
 	});
+
+    $effect(() => {
+        const currentSelectedPoint = selectedPoint
+        if (globe && data) {
+            globe.pointAltitude(d => d === currentSelectedPoint ? 0.05 : 0);
+            globe.pointColor(d => d === currentSelectedPoint ? 'red': 'white');
+            globe.pointRadius(d => d === selectedPoint ? '1': '0.5');
+        }
+    })
 </script>
 
 <div bind:this={container} class="fixed inset-0"></div>
