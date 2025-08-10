@@ -4,13 +4,16 @@
     import Button from '$lib/components/ui/button/button.svelte';
     import { CalendarDate } from '@internationalized/date';
     import groupLookup from '$lib/data/groupLookup.json'
+    import { json } from '@sveltejs/kit';
+    import { onMount } from 'svelte';
 
     let { data } = $props();
-    const { attacks } = data;
+    let attacks = $state(data.attacks ?? []);
     // console.log('Loaded attacks:', attacks);
-
-    let startDate = $state(new CalendarDate(2017, 12, 25));
-    let endDate = $state(new CalendarDate(2017, 12, 31));
+    let previousStartDate = new CalendarDate(2017, 12, 25)
+    let previousEndDate = new CalendarDate(2017, 12, 31)
+    let startDate = $state(previousStartDate);
+    let endDate = $state(previousEndDate);
     let selectedGroupCategory = $state(null);
     let selectedTargetType = $state(null);
     let selectedAttackType = $state(null);
@@ -27,6 +30,71 @@
         
         return groupPass && targetPass && methodPass && fatalitiesPass
     }));
+
+    let loading = $state(false);
+
+    function calToISO(cd) {
+        return `${String(cd.year).padStart(4,'0')}-${String(cd.month).padStart(2,'0')}-${String(cd.day).padStart(2,'0')}`;
+    }
+     
+    $effect(() => {
+        if (startDate === previousStartDate && endDate === previousEndDate) {
+            return;
+        }
+
+        const start = calToISO(startDate)
+        const end = calToISO(endDate)
+
+        const MAX_DAYS = 365 * 2
+        const daysRequested = Math.floor((new Date(end) - new Date(start)) / (24 * 3600 * 1000)) + 1;
+
+        if (daysRequested > MAX_DAYS) {
+            startDate = previousStartDate;
+            endDate = previousEndDate;
+            loading = false;
+            return;
+        }
+
+        previousStartDate = startDate
+        previousEndDate = endDate
+
+        const fetchData = async () => {
+            loading = true;
+            try {
+                const result = await getAttacks(start, end);
+                attacks = result;
+            } catch (error) {
+                console.error('Failed to fetch attacks:', error);
+                attacks = [];
+            } finally {
+                loading = false;
+            }
+        };
+
+        fetchData();
+    });
+        
+    async function getAttacks(start, end) {
+        try {
+            const response = await fetch('/api/data', {
+                method: 'POST',
+                body: JSON.stringify({ start, end }),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+            
+            if (!response.ok) {
+                console.error('API Error:', await response.text());
+                return [];
+            }
+
+            return await response.json();
+        } catch (error) {
+            console.error('Fetch failed:', error);
+            return [];
+        }
+    }
 
 </script>
 
