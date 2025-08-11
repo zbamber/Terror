@@ -3,6 +3,7 @@
     import Button from '$lib/components/ui/button/button.svelte';
     import { Inspect } from "lucide-svelte";
     let { selectedPoint } = $props();
+    import { Separator } from "$lib/components/ui/separator/index.js";
     console.log(selectedPoint.city)
 </script>
 
@@ -17,6 +18,7 @@
     <p class="text-sm text-muted-foreground">
         {selectedPoint.summary.split(/:\s(.+)/)[1] || ""}
     </p>
+    <Separator />
     <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
       <div>
         <span class="font-semibold">Attack Type:</span><br />
