@@ -19,7 +19,8 @@
         fatalityRange = $bindable(),
         rotating = $bindable(),
         filteredCount,
-        totalCount
+        totalCount,
+        submitCallback
     } = $props();
 
     let locked = $state(false);
@@ -50,11 +51,18 @@
         </p>
     </div>
     <div class="grid gap-4">
-        <FilterCalendar prompt='Pick a start Date' bind:value={startDate}/>
-        <FilterCalendar prompt='Pick an end Date' bind:value={endDate}/>
+        <div class="border-2 rounded-xl p-4 grid gap-2 relative pb-6">
+            <FilterCalendar prompt='Pick a start Date' bind:value={startDate}/>
+            <FilterCalendar prompt='Pick an end Date' bind:value={endDate}/>
+            <div class="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 bg-popover">
+            <Button variant="outline" onclick={submitCallback}>Submit</Button>
+            </div>
+        </div>
+        <div class="mt-2">
         <Combo
         bind:value={selectedGroupCategory}
         dataType="group"/>
+        </div>
         <Combo
         bind:value={selectedTargetType}
         dataType="target"/>

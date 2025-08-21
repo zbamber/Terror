@@ -30,7 +30,8 @@
             .onPointHover(obj => {hoveredPoint = obj})
             .onPointClick(obj => {obj === selectedPoint ? selectedPoint = null : selectedPoint = obj})
             .pointsTransitionDuration(100)
-            .pointResolution(16);
+            .pointResolution(16)
+			.lights([new THREE.AmbientLight(0xcccccc), new THREE.DirectionalLight(0xffffff, 0.8)]);
 
 		const scene = localGlobe.scene();
 		const camera = localGlobe.camera();

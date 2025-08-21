@@ -2,9 +2,7 @@
  import CalendarIcon from "@lucide/svelte/icons/calendar";
  import {
   DateFormatter,
-  type DateValue,
   getLocalTimeZone,
-  today,
   CalendarDate
  } from "@internationalized/date";
  import { cn } from "$lib/utils.js";
@@ -21,7 +19,7 @@
    years.push({ value: `${year}`, label:`${year}` });
  }
 
- const df = new DateFormatter("en-US", {
+ const df = new DateFormatter("en-GB", {
   dateStyle: "long"
  });
 
@@ -42,7 +40,7 @@
   class={cn(
    buttonVariants({
     variant: "outline",
-    class: "w-[280px] justify-start text-left font-normal"
+    class: "flex-grow justify-start text-left font-normal"
    }),
    !value && "text-muted-foreground"
   )}
