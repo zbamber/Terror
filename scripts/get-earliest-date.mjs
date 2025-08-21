@@ -2,11 +2,7 @@ import prisma from "../src/lib/server/prisma.js";
 
 async function getEarliestDate() {
   const result = await prisma.attack.findFirst({
-    orderBy: [
-      { year: 'asc' },
-      { month: 'asc' },
-      { day: 'asc' },
-    ],
+    orderBy: [{ year: "asc" }, { month: "asc" }, { day: "asc" }],
     select: {
       day: true,
       month: true,
@@ -15,7 +11,9 @@ async function getEarliestDate() {
   });
 
   if (result) {
-    console.log(`Earliest date found: Day: ${result.day}, Month: ${result.month}, Year: ${result.year}`);
+    console.log(
+      `Earliest date found: Day: ${result.day}, Month: ${result.month}, Year: ${result.year}`,
+    );
   } else {
     console.log("No attack data found in the database.");
   }

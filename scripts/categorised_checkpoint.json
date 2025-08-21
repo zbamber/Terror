@@ -3172,68 +3172,29 @@
     "Corsican Separatists",
     "United Democratic Terai Liberation Front (UDTLF)"
   ],
-  "Guerrilla Forces": [
-    "Georgian guerrillas",
-    "Gilad Shalhevet Brigades"
-  ],
-  "Islamic Companies": [
-    "Islamic Companies"
-  ],
-  "Islamic Courts Union (ICU)": [
-    "Islamic Courts Union (ICU)"
-  ],
-  "Islamic Defenders' Front (FPI)": [
-    "Islamic Defenders' Front (FPI)"
-  ],
-  "Islamic Fateh": [
-    "Islamic Fateh"
-  ],
-  "Islamic Front": [
-    "Islamic Front"
-  ],
-  "Islamic Front (Syria)": [
-    "Islamic Front (Syria)"
-  ],
+  "Guerrilla Forces": ["Georgian guerrillas", "Gilad Shalhevet Brigades"],
+  "Islamic Companies": ["Islamic Companies"],
+  "Islamic Courts Union (ICU)": ["Islamic Courts Union (ICU)"],
+  "Islamic Defenders' Front (FPI)": ["Islamic Defenders' Front (FPI)"],
+  "Islamic Fateh": ["Islamic Fateh"],
+  "Islamic Front": ["Islamic Front"],
+  "Islamic Front (Syria)": ["Islamic Front (Syria)"],
   "Islamic Front for the Liberation of Bahrain": [
     "Islamic Front for the Liberation of Bahrain"
   ],
   "Islamic Front for the Liberation of Palestine (IFLP)": [
     "Islamic Front for the Liberation of Palestine (IFLP)"
   ],
-  "Islamic Golden Army": [
-    "Islamic Golden Army"
-  ],
-  "Islamic Jihad Beit-al Maqdis Group": [
-    "Islamic Jihad Beit-al Maqdis Group"
-  ],
-  "Likud Political Party": [
-    "Likud"
-  ],
-  "Lithuanian Land Guard": [
-    "Lithuanian Land Guard"
-  ],
-  "Liwa Ahrar al-Sunna": [
-    "Liwa Ahrar al-Sunna"
-  ],
-  "Liwa al-Haqq": [
-    "Liwa al-Haqq"
-  ],
-  "Liwa al-Islam": [
-    "Liwa al-Islam"
-  ],
-  "Liwa al-Sham": [
-    "Liwa al-Sham"
-  ],
-  "Liwa al-Tawhid": [
-    "Liwa al-Tawhid"
-  ],
-  "Local Extremist": [
-    "Local Extremist"
-  ],
-  "Local Residents": [
-    "Local Residents"
-  ],
-  "Local landlord employee": [
-    "Local landlord employee"
-  ]
+  "Islamic Golden Army": ["Islamic Golden Army"],
+  "Islamic Jihad Beit-al Maqdis Group": ["Islamic Jihad Beit-al Maqdis Group"],
+  "Likud Political Party": ["Likud"],
+  "Lithuanian Land Guard": ["Lithuanian Land Guard"],
+  "Liwa Ahrar al-Sunna": ["Liwa Ahrar al-Sunna"],
+  "Liwa al-Haqq": ["Liwa al-Haqq"],
+  "Liwa al-Islam": ["Liwa al-Islam"],
+  "Liwa al-Sham": ["Liwa al-Sham"],
+  "Liwa al-Tawhid": ["Liwa al-Tawhid"],
+  "Local Extremist": ["Local Extremist"],
+  "Local Residents": ["Local Residents"],
+  "Local landlord employee": ["Local landlord employee"]
 }

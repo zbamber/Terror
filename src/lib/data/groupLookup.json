@@ -54,11 +54,7 @@
     "Shabwah Province of the Islamic State",
     "Tripoli Province of the Islamic State"
   ],
-  "Taliban": [
-    "Taliban",
-    "Tehrik-i-Taliban Pakistan (TTP)",
-    "Haqqani Network"
-  ],
+  "Taliban": ["Taliban", "Tehrik-i-Taliban Pakistan (TTP)", "Haqqani Network"],
   "Al-Qaeda and Affiliates": [
     "Al-Qaida",
     "Al-Qaida Kurdish Battalions (AQKB)",

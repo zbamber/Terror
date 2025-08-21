@@ -40,13 +40,15 @@ const startOfEnd = $derived(endDate.subtract({ years: 2 }));
     onclick={() => {
         endDate = endOfStart
         getAttacks(calToISO(startDate), calToISO(endOfStart));
+        open = false;
         }}>
     {df.format(startDate.toDate(getLocalTimeZone())) + ' to ' + df.format(endOfStart.toDate(getLocalTimeZone()))}
     </AlertDialog.Action>
     <AlertDialog.Action
     onclick={() => {
         startDate = startOfEnd
-        getAttacks(calToISO(startOfEnd), calToISO(endDate))
+        getAttacks(calToISO(startOfEnd), calToISO(endDate));
+        open = false;
         }}>
     {df.format(startOfEnd.toDate(getLocalTimeZone())) + ' to ' + df.format(endDate.toDate(getLocalTimeZone()))}
     </AlertDialog.Action>
