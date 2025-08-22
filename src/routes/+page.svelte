@@ -1,5 +1,5 @@
 <script>
-    import Globe from '@/lib/components/Globe.svelte';
+    import Globe from '@/lib/components/tmp.svelte';
     import NewGlobe from '@/lib/components/NewGlobe.svelte';
     import FilterPane from '$lib/components/FilterPane.svelte';
     import InfoCard from '@/lib/components/InfoCard.svelte';
