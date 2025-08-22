@@ -6,9 +6,9 @@ If you want to know what it does… just [try it out](https://terror-three.verce
 
 This was mainly a project to **learn web development** and see if I liked it. Spoiler: building stuff was fun, but configuring things… not so much 😅.  
 
-The design isn’t overly creative, but thanks to shamelessly exploiting [shadcn-svelte](https://www.shadcn-svelte.com/), it looks reasonably smart. I also discovered [Globe.gl](https://globe.gl/) *after* mostly implementing the globe myself with [Three.js](https://threejs.org/) — turns out someone had already done it better. Classic.  
+The design isn’t overly creative, but thanks to shamelessly exploiting [shadcn-svelte](https://www.shadcn-svelte.com/), it looks reasonably smart. I also discovered [Globe.gl](https://globe.gl/) *after* mostly implementing the globe myself with [Three.js](https://threejs.org/) — turns out someone had already done it better.  
 
-Despite the chaos, I had a great experience with [SvelteKit](https://kit.svelte.dev/) (would recommend). Using **Svelte 5 runes** is cool, but be warned: every AI model is useless at writing it for you. Luckily the [Svelte docs](https://svelte.dev/docs) are excellent.  
+I had a great experience with [SvelteKit](https://kit.svelte.dev/) (would recommend). Using **Svelte 5 runes** is cool, but be warned: every AI model is useless at writing it for you. Luckily the [Svelte docs](https://svelte.dev/docs) are excellent.  
 
 This is also my **first medium-sized JavaScript project**, so yes: the code quality is probably awful. Yes: it’s fragile. No: I didn’t do much error handling. Please just use it the way I expected you to 🙏.  
 
